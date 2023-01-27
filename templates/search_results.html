@@ -1,0 +1,22 @@
+<h1>Search Results</h1>
+
+<ul>
+    {% for fias in object_list %}
+        <li>
+            <a>Уникальный идентификатор записи дома: {{ fias.Houseid }}</a><br>
+            <a>Глобальный уникальный идентификатор дома: {{ fias.Houseguid }}</a><br>
+            {% if fias.Is_actual %}
+                <a>Актуальный</a><br>
+            {% else %}
+                <a>Не актуальный</a><br>
+            {% endif %}
+            {% if fias.Duplicate == "" %}
+                <a>Запись является оригиналом</a><br>
+            {% else %}
+                <a>Запись является дублем</a><br>
+            {% endif %}
+            <br>
+        </li>
+    {% endfor %}
+
+</ul>
